@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>FokusPlan</title>
+  <meta name="description" content="Persönlicher Tagesplaner: To-dos, Training, Bio, Türkisch, Ewe und Masseaufbau an einem Ort.">
+  <meta name="theme-color" content="#3D6FE0">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="FokusPlan">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow" id="dateline"></div>
+      <h1 id="title">FokusPlan</h1>
+    </div>
+    <button class="lvl" id="lvl" type="button" aria-label="Level und Punkte"></button>
+  </header>
+  <main id="view"></main>
+</div>
+
+<button class="fab" id="fab" type="button" aria-label="Aufgabe hinzufügen">+</button>
+
+<nav class="tabbar" id="tabbar">
+  <button data-tab="today" type="button"><span class="i">📅</span>Heute</button>
+  <button data-tab="week" type="button"><span class="i">🗓️</span>Woche</button>
+  <button data-tab="tasks" type="button"><span class="i">📋</span>To-dos</button>
+  <button data-tab="goals" type="button"><span class="i">🎯</span>Ziele</button>
+  <button data-tab="more" type="button"><span class="i">☰</span>Mehr</button>
+</nav>
+
+<div class="backdrop hidden" id="backdrop"></div>
+<div class="sheet hidden" id="sheet" role="dialog" aria-modal="true"><div class="grab"></div><div id="sheetBody"></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="js/data.js"></script>
+<script src="js/ewe-phrases.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,287 +1,77 @@
-# Organisationsapp
-Umfangreiche organisationsapp aufgenommen Alltag ausgelegt und produktiv 
 # 🗓️ FokusPlan – Persönlicher Organisations- & Tagesplaner
 
 > Eine App, die meinen Alltag organisiert, mich am Ball hält und meine Ziele zusammenbringt: **Training, Bio-Lernen, Sprachen (Ewe & Türkisch) und Masseaufbau durch Ernährung**.
 
-FokusPlan ist das Zentrum meines Ökosystems. Die bereits bestehende **Trainings-App** und die **Bio-Lern-App** werden eingebunden, damit alles an einem Ort geplant, erledigt und ausgewertet wird.
+FokusPlan ist das Zentrum meines Ökosystems. Er läuft als Web-App (PWA) auf dem iPhone-Home-Bildschirm, offline, ohne Konto und ohne Server, genau wie die **Trainingsapp** und die **Ewe-Lernapp**.
 
----
+## ✨ Was die App kann
 
-## 📑 Inhalt
+### 📅 Heute
+- **Fertiger Tagesplan** aus Routinen: Uni und Praktikum (feste Termine), Training (aus der Trainingsapp), 6 Mahlzeiten, Türkisch 20 Min., Ewe 15 Min., Bio-Lernblöcke, Abend-Check und Schlafenszeit
+- **Freie Lücken** werden angezeigt („Frei bis 15:30 · 45 Min. – + hier planen“)
+- **Flexible Blöcke** (Sprachen, Bio) legt die App automatisch in freie Lücken. **⚡ Auto-Planen** verteilt Aufgaben ohne Uhrzeit.
+- **Coach**: was als Nächstes kommt, verpasste Blöcke neu einplanen, Kalorien-Rückstand, gefährdete Serien, oft verschobene Aufgaben, Prüfungs-Countdown
+- **Morgen-Check-in** (Energie, Schlaf, Top 3) und **Abend-Check** (Rückblick, Offenes auf morgen)
+- **Fokus-Timer** für jeden Block. Sprachminuten werden automatisch gezählt.
 
-- [Ziele](#-ziele)
-- [Features](#-features)
-- [Module im Detail](#-module-im-detail)
-- [Beispiel-Tagesplan](#-beispiel-tagesplan)
-- [Tech-Stack](#-tech-stack)
-- [Installation](#-installation)
-- [Projektstruktur](#-projektstruktur)
-- [Datenmodell](#-datenmodell)
-- [Roadmap](#-roadmap)
-- [Mitwirken](#-mitwirken)
-- [Lizenz](#-lizenz)
+### ➕ Hinzufügen & Verschieben
+- **+** öffnet die Schnelleingabe und versteht z. B. `morgen 18 Uhr Protokoll schreiben 45min ! #uni`
+- **⏭** schiebt eine Aufgabe auf morgen. Im Menü gibt es Übermorgen, +1 Woche, +30 Min., die nächste Lücke, ohne Uhrzeit und den Eingang.
+- **⠿ ziehen** in der Tagesansicht: auf eine Lücke (neue Uhrzeit), auf eine andere Aufgabe (Zeiten tauschen) oder nach „Ohne Uhrzeit“
+- **Wochenansicht**: Aufgabe gedrückt halten und auf einen anderen Tag oder in den Eingang ziehen
+- Unerledigte To-dos wandern automatisch in den nächsten Tag und bekommen den Zähler „↻ verschoben“.
+- **In Schritte teilen** für Aufgaben, die immer wieder liegen bleiben
+- Wiederholungen (täglich, Mo–Fr, wöchentlich) und alle **Routinen** sind unter *Mehr → Routinen* frei bearbeitbar oder pausierbar.
 
----
+### 🍗 Masseaufbau
+- Kalorienziel nach Mifflin-St Jeor × Aktivität + Überschuss (Standard +400 kcal), Protein 2 g/kg
+- Essen per Schnellauswahl eintragen (Portionen ×½ bis ×3) oder als eigenen Eintrag
+- Gewichtsverlauf mit 7-Tage-Schnitt. Steht das Gewicht 2 Wochen still, schlägt die App +150 kcal vor.
+- Shake-Rezepte, Masse-Einkaufsliste, Tipp des Tages
 
-## 🎯 Ziele
+### 🗣️ Sprachen
+- **Türkisch**: Wort des Tages mit Aussprache, über 170 Karteikarten mit Wiederholungsintervallen (1, 3, 7, 16 … Tage), Grammatik-Tipps
+- **Ewe**: Satz des Tages (aus der Ewe-Lernapp), Link zur Ewe-App, Fortschritt von dort
+- Minuten pro Woche für beide Sprachen
 
-| Bereich | Ziel | Wie FokusPlan hilft |
-|---|---|---|
-| 🏋️ Training | Regelmäßig trainieren, Kraft steigern | Trainingseinheiten aus der Trainings-App werden automatisch eingeplant |
-| 🧬 Biologie | Stoff kontinuierlich lernen statt kurz vor der Prüfung | Lernblöcke + Wiederholungen aus der Bio-Lern-App im Kalender |
-| 🇹🇷 Türkisch | Täglich kleine Fortschritte | 15–20 Min. Sprachblock, Vokabel-Streak |
-| 🌍 Ewe | Grundlagen aufbauen | 10–15 Min. Sprachblock, Phrasen des Tages |
-| 🍗 Masseaufbau | Breiter werden durch Ernährung | Kalorien- & Proteinziel, Mahlzeitenplan, Gewichtsverlauf |
-| ✅ Organisation | Nichts vergessen, dranbleiben | To-dos, Wochenplanung, Erinnerungen, Streaks |
+### 🔥 Dranbleiben
+- Serien für Training, Türkisch, Ewe, Bio, Proteinziel, Kalorienziel und pünktlich ins Bett, jeweils mit einer 4-Wochen-Übersicht
+- XP und Level, **Wochenrückblick** mit konkreten Vorschlägen
+- **Prüfungen** mit Countdown und automatischem Lernplan rückwärts (8 Blöcke)
+- Erinnerungen 5 Minuten vor jedem Block, solange die App offen ist. Dazu gibt es den **Kalender-Export (.ics)** mit Alarm für die nächsten 7 Tage.
 
-> ✏️ **Eigene Ziele eintragen:** Die Tabelle oben ist eine Vorlage – passe Werte (z. B. Zielgewicht, Prüfungstermine) unter `config/goals.json` an.
+## 🔗 Verbindung mit Trainings- und Ewe-App
 
----
+Laufen alle Apps über **GitHub Pages** unter derselben Adresse (`https://dgb10145.github.io/…`), teilen sie sich den Browser-Speicher. FokusPlan liest dann:
+- aus der **Trainingsapp** die Einheiten pro Tag und welche Übungen abgehakt sind (z. B. „Trainingsapp 5/7“), dazu das Turnier-Datum
+- aus der **Ewe-Lernapp** die Serie und die Karten von heute
 
-## ✨ Features
+Ohne Verbindung nutzt FokusPlan eine eingebaute Kopie des Trainingsplans. Die Adresse einer Bio-Lernapp lässt sich unter *Mehr → Einstellungen* eintragen.
 
-### Kern
-- 📋 **To-do-Liste** mit Prioritäten (Hoch / Mittel / Niedrig), Kategorien, Fälligkeitsdatum und Unteraufgaben
-- ➕ **Eigene Aufgaben hinzufügen** – jederzeit, schnell per Schnelleingabe („Morgen 18 Uhr Türkisch“)
-- 🔀 **Verschieben per Drag & Drop** – zwischen Tagen, Zeitblöcken und Listen
-- ⏭️ **„Auf morgen verschieben“** mit einem Tipp; unerledigte Aufgaben wandern automatisch in den nächsten Tag
-- 🗓️ **Tages-, Wochen- und Monatsansicht**
-- ⏰ **Time-Blocking** – Aufgaben direkt in Zeitfenster ziehen
-- 🔔 **Erinnerungen & Push-Benachrichtigungen**
+## 📲 Auf das iPhone bringen
 
-### Dranbleiben
-- 🔥 **Streaks** für Gewohnheiten (Training, Sprachen, Proteinziel, Lernen)
-- 📊 **Wochenrückblick** – was lief gut, was wurde verschoben, wo hängt es
-- 🧠 **Smarte Vorschläge** – erkennt Aufgaben, die oft verschoben werden, und schlägt kleinere Schritte vor
-- 🏆 **Level & Erfolge** als Motivation
-- 🌅 **Morgen-Check-in / Abend-Reflexion** (1 Minute)
+1. Repository → *Settings* → *Pages* → *Source: GitHub Actions*. Der Workflow `.github/workflows/pages.yml` veröffentlicht die App bei jedem Push.
+2. `https://dgb10145.github.io/Organisationsapp/` in **Safari** öffnen.
+3. **Teilen** → **Zum Home-Bildschirm**.
 
-### Integrationen
-- 🏋️ **Trainings-App** – Trainingstage & absolvierte Workouts werden synchronisiert
-- 🧬 **Bio-Lern-App** – Lernkapitel und fällige Wiederholungen erscheinen als Aufgaben
-- 📅 Optional: Export ins Handy-Kalender (iCal)
+Lokal testen: `python3 -m http.server` im Projektordner, dann `http://localhost:8000`.
 
----
+## 📁 Dateien
 
-## 🧩 Module im Detail
+```
+index.html            Oberfläche
+css/app.css           Gestaltung (hell/dunkel)
+js/data.js            Standard-Routinen, Lebensmittel, Türkisch-Wortschatz, Tipps
+js/ewe-phrases.js     Ewe-Sätze aus der Ewe-Lernapp
+js/app.js             Planer, Coach, Ernährung, Sprachen, Serien, Drag & Drop
+sw.js                 Offline-Cache
+manifest.webmanifest  PWA-Manifest
+```
 
-### 1. Tagesplaner
-- Zeitleiste von Aufstehen bis Schlafen
-- Feste Blöcke (Schule/Uni/Arbeit, Schlaf) + flexible Blöcke
-- Freie Zeitfenster werden markiert, damit Sprachen und Lernen reinpassen
+## 💾 Daten
 
-### 2. Sprachen: Türkisch & Ewe 🇹🇷 🌍
-- **Täglicher Mini-Block** (Standard: Türkisch 20 Min., Ewe 15 Min.) – kurz genug, um ihn nie auszulassen
-- **Vokabeltrainer** mit Spaced Repetition (Karteikarten)
-- **Phrase des Tages** auf dem Startbildschirm
-- **Fortschritts-Tracker**: gelernte Wörter, Minuten pro Woche, Streak
-- Tipp: Sprachen an bestehende Gewohnheiten koppeln (z. B. Vokabeln beim Frühstück, Audio beim Pendeln)
-
-### 3. Ernährung & Masseaufbau 🍗
-- **Kalorienrechner**: Grundumsatz + Aktivität + Überschuss (Standard: **+300–500 kcal/Tag**)
-- **Proteinziel**: Standard **1,6–2,2 g pro kg Körpergewicht**
-- **Mahlzeitenplan**: 4–5 Mahlzeiten am Tag als Aufgaben im Tagesplan
-- **Einfache Kalorienbomben-Liste** (Haferflocken, Nüsse, Erdnussbutter, Vollmilch, Reis, Eier, Hähnchen, Olivenöl)
-- **Shake-Rezepte** für schnelle Extra-Kalorien
-- **Gewichtsverlauf**: wöchentliches Wiegen, Diagramm; Ziel ca. **0,25–0,5 kg Zunahme pro Woche**
-- Hinweis, wenn das Gewicht 2 Wochen stagniert → Kalorien leicht erhöhen
+Alles liegt im `localStorage` dieses Geräts (Schlüssel `fokusplan-v1`). Unter *Mehr* gibt es Backup und Import, um die Daten auf ein anderes Gerät zu übertragen.
 
 > ⚠️ Die Ernährungswerte sind allgemeine Richtwerte und ersetzen keine ärztliche oder ernährungswissenschaftliche Beratung.
-
-### 4. Training (Anbindung) 🏋️
-- Trainingsplan aus der Trainings-App wird in den Kalender übernommen
-- Ernährung passt sich an Trainingstage an (z. B. mehr Kohlenhydrate)
-
-### 5. Lernen (Anbindung) 🧬
-- Fällige Bio-Wiederholungen erscheinen automatisch als To-dos
-- Prüfungstermine mit Countdown und Rückwärtsplanung
-
----
-
-## 🕒 Beispiel-Tagesplan
-
-| Uhrzeit | Block | Kategorie |
-|---|---|---|
-| 07:00 | Aufstehen, Frühstück (≈ 700 kcal, 35 g Protein) | 🍗 Ernährung |
-| 07:20 | Türkisch-Vokabeln (10 Min.) | 🇹🇷 Sprache |
-| 08:00–14:00 | Schule / Uni / Arbeit | 📚 Fix |
-| 10:00 | Snack: Nüsse + Banane | 🍗 Ernährung |
-| 14:30 | Mittagessen | 🍗 Ernährung |
-| 15:30 | Bio lernen (45 Min.) | 🧬 Lernen |
-| 16:30 | Ewe (15 Min.) | 🌍 Sprache |
-| 17:30 | Training | 🏋️ Training |
-| 19:00 | Abendessen + Shake | 🍗 Ernährung |
-| 20:00 | Türkisch (10 Min. Hören/Sprechen) | 🇹🇷 Sprache |
-| 21:30 | Abend-Reflexion & Plan für morgen | ✅ Organisation |
-| 22:30 | Schlafen (Schlaf = Wachstum!) | 😴 Erholung |
-
-Alle Blöcke sind frei **verschieb-, lösch- und ergänzbar**.
-
----
-
-## 🛠️ Tech-Stack
-
-| Ebene | Technologie |
-|---|---|
-| Frontend | React + TypeScript (Vite) |
-| Styling | Tailwind CSS |
-| Drag & Drop | dnd-kit |
-| State | Zustand |
-| Speicher | IndexedDB (offline-first) via Dexie.js |
-| Sync (optional) | Supabase |
-| Mobile | PWA (installierbar auf dem Handy) |
-| Diagramme | Recharts |
-| Tests | Vitest + Testing Library |
-
----
-
-## 🚀 Installation
-
-```bash
-# Repository klonen
-git clone https://github.com/<dein-username>/fokusplan.git
-cd fokusplan
-
-# Abhängigkeiten installieren
-npm install
-
-# Entwicklungsserver starten
-npm run dev
-
-# Produktions-Build
-npm run build
-```
-
-Die App läuft dann unter `http://localhost:5173`.
-Auf dem Handy: Seite im Browser öffnen → **„Zum Startbildschirm hinzufügen“**.
-
-### Konfiguration
-
-`config/goals.json` anpassen:
-
-```json
-{
-  "bodyweightKg": 70,
-  "calorieSurplus": 400,
-  "proteinPerKg": 2.0,
-  "languages": {
-    "turkish": { "dailyMinutes": 20 },
-    "ewe": { "dailyMinutes": 15 }
-  },
-  "integrations": {
-    "trainingApp": true,
-    "bioApp": true
-  }
-}
-```
-
----
-
-## 📁 Projektstruktur
-
-```
-fokusplan/
-├── config/
-│   └── goals.json
-├── public/
-│   └── manifest.json
-├── src/
-│   ├── components/
-│   │   ├── DayTimeline.tsx
-│   │   ├── TaskCard.tsx
-│   │   ├── QuickAdd.tsx
-│   │   └── StreakBadge.tsx
-│   ├── modules/
-│   │   ├── planner/
-│   │   ├── todos/
-│   │   ├── languages/      # Türkisch & Ewe
-│   │   ├── nutrition/      # Kalorien, Protein, Gewicht
-│   │   ├── training/       # Anbindung Trainings-App
-│   │   └── biology/        # Anbindung Bio-Lern-App
-│   ├── store/
-│   ├── db/
-│   ├── utils/
-│   └── App.tsx
-├── tests/
-├── package.json
-└── README.md
-```
-
----
-
-## 🗃️ Datenmodell
-
-```ts
-type Category =
-  | "training" | "biology" | "turkish" | "ewe"
-  | "nutrition" | "organisation" | "personal";
-
-interface Task {
-  id: string;
-  title: string;
-  category: Category;
-  priority: "high" | "medium" | "low";
-  date: string;           // ISO-Datum
-  startTime?: string;     // "17:30"
-  durationMin?: number;
-  done: boolean;
-  postponedCount: number; // wie oft verschoben
-  subtasks?: Task[];
-  source?: "manual" | "training-app" | "bio-app";
-}
-
-interface Habit {
-  id: string;
-  name: string;
-  category: Category;
-  streak: number;
-  history: Record<string, boolean>; // Datum -> erledigt
-}
-
-interface NutritionLog {
-  date: string;
-  calories: number;
-  proteinG: number;
-  weightKg?: number;
-}
-```
-
----
-
-## 🗺️ Roadmap
-
-- [x] Konzept & README
-- [ ] To-do-Liste mit Hinzufügen / Bearbeiten / Löschen
-- [ ] Tagesansicht mit Drag & Drop
-- [ ] Wochenansicht
-- [ ] Streaks & Gewohnheiten
-- [ ] Sprachmodul (Türkisch & Ewe) mit Karteikarten
-- [ ] Ernährungsmodul mit Kalorien-/Proteinrechner
-- [ ] Gewichtsverlauf-Diagramm
-- [ ] Anbindung Trainings-App
-- [ ] Anbindung Bio-Lern-App
-- [ ] Push-Erinnerungen
-- [ ] Wochenrückblick
-- [ ] Cloud-Sync zwischen Geräten
-- [ ] Dark Mode
-
----
-
-## 🤝 Mitwirken
-
-1. Fork erstellen
-2. Feature-Branch anlegen: `git checkout -b feature/mein-feature`
-3. Änderungen committen: `git commit -m "Neues Feature"`
-4. Pushen: `git push origin feature/mein-feature`
-5. Pull Request öffnen
-
----
-
-## 📄 Lizenz
-
-MIT – siehe [LICENSE](LICENSE).
-
----
 
 <p align="center"><b>Kleine Schritte jeden Tag &gt; große Pläne, die liegen bleiben.</b> 💪</p>
